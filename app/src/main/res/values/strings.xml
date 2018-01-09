@@ -19,4 +19,5 @@
     <string name="menu_word_list">Список слов</string>
     <string name="menu_train">Тренировка</string>
     <string name="menu_settings">Настройки</string>
+    <string name="no_words_to_train_hint">Добавьте новые слова для изучения!</string>
 </resources>

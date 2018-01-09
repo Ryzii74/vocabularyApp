@@ -15,7 +15,17 @@
         android:layout_height="wrap_content"
         android:background="@drawable/content_main_container_shape"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/textLight"
+        android:text="@string/no_words_to_train_hint"/>
+
     <android.support.constraint.ConstraintLayout
+        android:visibility="invisible"
         android:id="@+id/train_task_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
