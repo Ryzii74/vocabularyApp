@@ -2,7 +2,6 @@ package com.example.ryzii.vocabulary
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter
 import com.example.ryzii.vocabulary.data.Word
 import com.example.ryzii.vocabulary.data.wordsController
 import kotlinx.android.synthetic.main.fragment_train.*
-import org.jetbrains.anko.toast
 
 class TrainFragment : Fragment() {
     private lateinit var currentWord: Word
@@ -48,6 +46,8 @@ class TrainFragment : Fragment() {
         try {
             train_translation.visibility = View.INVISIBLE
             currentWord = activity.wordsController.getOneToTrain(currentTrainType)
+            train_task_container.visibility = View.VISIBLE
+            no_words_to_train_hint.visibility = View.GONE
             if (currentTrainType == 0) {
                 train_task_to_translate.text = currentWord.ru
                 train_translation.text = currentWord.en
@@ -56,7 +56,8 @@ class TrainFragment : Fragment() {
                 train_translation.text = currentWord.ru
             }
         } catch (e: Exception) {
-            Log.d("setWordToTrainError", e.toString())
+            train_task_container.visibility = View.GONE
+            no_words_to_train_hint.visibility = View.VISIBLE
         }
     }
 
