@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Словарик</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="remember_yes">Помню</string>
+    <string name="remember_no">Не помню</string>
+    <string name="text_to_translate_hint_ru">Введите текст для перевода</string>
+    <string name="text_to_translate_hint_en">Enter text to translate</string>
+    <string name="title_activity_words_list">WordsListActivity</string>
+    <string name="train_get_translation_hint">Нажмите на эту карточку для просмотра ответа</string>
+    <string name="russian">Русский</string>
+    <string name="english">Английский</string>
+    <string name="translation_place_hint">Здесь будет перевод</string>
+    <string name="save_button">Сохранить</string>
+    <string name="menu_add_word">Добавить слово</string>
+    <string name="menu_word_list">Список слов</string>
+    <string name="menu_train">Тренировка</string>
+    <string name="menu_settings">Настройки</string>
+</resources>
