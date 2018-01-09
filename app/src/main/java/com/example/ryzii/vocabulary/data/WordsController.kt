@@ -79,13 +79,15 @@ class WordsController(private val db: WordsDBHelper) {
         try {
             val values = ContentValues()
             values.put(Word.COLUMN_LAST_TRAIN_AT, System.currentTimeMillis() / 1000L)
+            val value = when (trainType) {
+                0 -> Word.COLUMN_RU_TO_EN_COUNT to word.ru_to_en_count + 1
+                1 -> Word.COLUMN_EN_TO_RU_COUNT to word.en_to_ru_count + 1
+                else -> throw IllegalArgumentException("trainType bad value")
+            }
             if (isRemembered) {
-                val value = when (trainType) {
-                    0 -> Word.COLUMN_RU_TO_EN_COUNT to word.ru_to_en_count + 1
-                    1 -> Word.COLUMN_EN_TO_RU_COUNT to word.en_to_ru_count + 1
-                    else -> throw IllegalArgumentException("trainType bad value")
-                }
                 values.put(value.first, value.second)
+            } else {
+                values.put(value.first, 0)
             }
 
             db.use {
