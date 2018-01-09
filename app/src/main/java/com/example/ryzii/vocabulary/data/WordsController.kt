@@ -60,10 +60,11 @@ class WordsController(private val db: WordsDBHelper) {
         val fieldToSort = when (trainType) {
             0 -> Word.COLUMN_RU_TO_EN_COUNT
             1 -> Word.COLUMN_EN_TO_RU_COUNT
-            else -> Word.COLUMN_LAST_TRAIN_AT
+            else -> Word.COLUMN_RU_TO_EN_COUNT
         }
         val words = db.use {
             select(Word.TABLE_NAME)
+                .whereArgs("$fieldToSort < 5")
                 .orderBy(fieldToSort, SqlOrderDirection.ASC)
                 .orderBy(Word.COLUMN_LAST_TRAIN_AT, SqlOrderDirection.ASC)
                 .limit(1)
